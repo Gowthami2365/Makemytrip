@@ -44,6 +44,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BaseClass {
 
 	public static Properties prop;
@@ -68,7 +70,8 @@ public class BaseClass {
 
 		try {
 			if (browserName.equalsIgnoreCase("chrome")) {
-				System.setProperty("webdriver.chrome.driver", ".\\chromedriver.exe");
+				//System.setProperty("webdriver.chrome.driver", ".\\chromedriver.exe");
+				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver(opt);
 
 			} else if (browserName.equalsIgnoreCase("firefox")) {
